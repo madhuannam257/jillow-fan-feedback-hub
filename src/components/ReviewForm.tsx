@@ -182,11 +182,11 @@ export function ReviewForm() {
           </div>
 
           <div>
-            <label className={labelClass} htmlFor="review">
+            <label className={labelClass} htmlFor="reviewText">
               YOUR REVIEW*
             </label>
             <textarea
-              id="review"
+              id="reviewText"
               name="review"
               rows={5}
               maxLength={2000}
