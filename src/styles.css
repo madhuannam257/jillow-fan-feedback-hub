@@ -153,3 +153,31 @@
     color: var(--color-foreground);
   }
 }
+
+@theme inline {
+  --font-display: "Archivo Black", "Arial Black", sans-serif;
+  --font-sans: "Barlow", ui-sans-serif, system-ui, sans-serif;
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-primary-dark: var(--primary-dark);
+  --shadow-card: var(--shadow-card);
+  --shadow-red: var(--shadow-red);
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+  }
+
+  h1,
+  h2,
+  h3,
+  .display {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+@utility bg-hero-glow {
+  background-image: var(--gradient-hero);
+}
