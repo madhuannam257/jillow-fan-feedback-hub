@@ -50,5 +50,17 @@ export const submitReview = createServerFn({ method: "POST" })
 
     if (error) throw new Error("We couldn't save your review. Please try again.");
 
+    // Email notification is best-effort: never roll back or fail a saved review.
+    const { sendReviewNotification } = await import("./review-email.server");
+    await sendReviewNotification({
+      customerName: data.customerName,
+      jerseyProduct: data.jerseyProduct,
+      rating: data.rating,
+      howDidYouHear: data.howDidYouHear,
+      review: data.review,
+      email: data.email ? data.email : null,
+      photoUrl,
+    });
+
     return { ok: true as const };
   });
